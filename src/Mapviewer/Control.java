@@ -1,19 +1,23 @@
 package Mapviewer;
 
+import com.neet.DiamondHunter.Main.Game;
 import java.io.*;
 import java.util.HashMap;
-
-import com.neet.DiamondHunter.Main.Game;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class Control {
     int x, y;
@@ -27,6 +31,7 @@ public class Control {
     private GraphicsContext gContext;
     private ObjectInputStream objectReader;
     private ObjectOutputStream objectWriter;
+
     File file;
     Tuple axe = null;   //store the item's positon
     Tuple boat = null;
@@ -36,7 +41,20 @@ public class Control {
     @FXML
     private Canvas canvas;
 
+    /*Confirm closing program and saves any changes have been done by user*/
+    public void  closeProgram() throws IOException {
 
+        Stage window = new Stage();
+        window.initModality(Modality.APPLICATION_MODAL);
+        Parent root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
+
+
+
+        window.setTitle("Confirm Exit");
+        window.setScene(new Scene(root));
+        window.showAndWait();
+
+    }
     public void initialize() {
         //initialize the picture resource
         map = new Image(getClass().getResourceAsStream("/Tilesets/testtileset.gif"));
@@ -82,8 +100,8 @@ public class Control {
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                x = (int) event.getX() / 16;
-                y = (int) event.getY() / 16;
+                x = (int) event.getX() / TILESIZE;
+                y = (int) event.getY() / TILESIZE;
                 mapValue = gameMap.getMap();
                 int currentPoint = mapValue[y][x];
                 checkAvailable(currentPoint, x, y, AXE);
@@ -98,8 +116,8 @@ public class Control {
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                x = (int) event.getX() / 16;
-                y = (int) event.getY() / 16;
+                x = (int) event.getX() / TILESIZE;
+                y = (int) event.getY() / TILESIZE;
                 mapValue = gameMap.getMap();
                 int currentPoint = mapValue[y][x];
                 checkAvailable(currentPoint, x, y, BOAT);
