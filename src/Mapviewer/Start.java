@@ -15,6 +15,16 @@ public class Start extends Application {
             Parent content = FXMLLoader.load(getClass().getClassLoader().getResource("Mapviewer/editor.fxml"));
             Scene scene = new Scene(content);
             primaryStage.setScene(scene);
+            primaryStage.setOnCloseRequest(e->{
+                e.consume();
+                Mapviewer.Control cp = new Mapviewer.Control();
+                try {
+
+                    cp.closeProgram();
+                } catch (java.io.IOException e1) {
+                    e1.printStackTrace();
+                }
+            });
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

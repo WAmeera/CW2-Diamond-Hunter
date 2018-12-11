@@ -5,10 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class Sample2 {
-    @FXML Button closeButton;
 
+public class Sample2 {
+
+
+    @FXML Button closeButton;
+    //Mapviewer.Control c = new Control();
     public void closeProgram(){
+
         System.exit(0);
     }
     @FXML
@@ -18,4 +22,6 @@ public class Sample2 {
         // do what you have to do
         stage.close();
     }
+
+
 }

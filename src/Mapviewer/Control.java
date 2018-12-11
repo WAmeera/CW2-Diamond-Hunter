@@ -49,7 +49,6 @@ public class Control {
         Parent root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
 
 
-
         window.setTitle("Confirm Exit");
         window.setScene(new Scene(root));
         window.showAndWait();
@@ -182,7 +181,7 @@ public class Control {
 
     /* save the change and write items object into the file using a Serializable hashmap.*/
     @FXML
-    public void saveClose() {
+    void saveClose() {
         if (boat != null) {
             items.put(0, boat);
         }
