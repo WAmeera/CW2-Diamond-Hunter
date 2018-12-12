@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
@@ -11,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Mapviewer.Control">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Mapviewer.Control">
    <bottom>
       <HBox alignment="CENTER" prefHeight="127.0" prefWidth="729.0" style="-fx-background-color: orange;">
          <children>
@@ -21,7 +28,7 @@
                </HBox.margin>
                <children>
                   <TextArea fx:id="yPosition" layoutX="92.0" layoutY="-12.0" prefHeight="38.0" prefWidth="65.0" />
-                  <Button layoutX="90.0" layoutY="45.0" mnemonicParsing="false" onAction="#saveClose" prefHeight="35.0" prefWidth="107.0" text="Save" textAlignment="CENTER">
+                  <Button fx:id="playButton" layoutX="-12.0" layoutY="38.0" mnemonicParsing="false" onAction="#saveClose" prefHeight="35.0" prefWidth="185.0" text="Save &amp; Play!" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -30,14 +37,6 @@
                      </effect>
                   </Button>
                   <TextArea layoutX="4.0" layoutY="-12.0" prefHeight="38.0" prefWidth="65.0" fx:id="xPosition" />
-                  <Button layoutX="-37.0" layoutY="45.0" mnemonicParsing="false" onAction="#startGame" prefHeight="35.0" prefWidth="107.0" text="StartGame" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <effect>
-                        <DropShadow spread="0.32" />
-                     </effect>
-                  </Button>
                </children>
             </Pane>
          </children>
@@ -65,6 +64,6 @@
       </VBox>
    </right>
    <center>
-      <Canvas id="exit" fx:id="canvas" height="557.0" width="629.0" BorderPane.alignment="CENTER" />
+      <Canvas id="exit" fx:id="canvas" height="642.0" width="642.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

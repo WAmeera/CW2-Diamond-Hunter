@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
@@ -181,10 +182,16 @@ public class Control {
         alert.showAndWait();
     }
 
+    @FXML Button playButton;
     /*start the Main Game*/
     @FXML
     public void startGame(){
         Game.main(null);
+        // get a handle to the stage
+        Stage stage = (Stage) playButton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+
     }
 
     /* save the change and write items object into the file using a Serializable hashmap.*/
@@ -208,6 +215,9 @@ public class Control {
         axe_y = axe.y;
         boat_x = boat.x;
         boat_y = boat.y;
+        startGame();
+
+
     }
 
     /*draw the item on canvas, using pixelReader to cut the picture*/
