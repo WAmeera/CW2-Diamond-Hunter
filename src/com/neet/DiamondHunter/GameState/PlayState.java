@@ -4,11 +4,13 @@
 // Updates and draws all game objects.
 
 package com.neet.DiamondHunter.GameState;
-
+//package Mapviewer.Control;
+//import Mapviewer.Control;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
+import Mapviewer.Control;
 import com.neet.DiamondHunter.Entity.Diamond;
 import com.neet.DiamondHunter.Entity.Item;
 import com.neet.DiamondHunter.Entity.Player;
@@ -20,6 +22,8 @@ import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
 import com.neet.DiamondHunter.TileMap.TileMap;
+
+import static Mapviewer.Control.axe_x;
 
 public class PlayState extends GameState {
 	
@@ -171,8 +175,8 @@ public class PlayState extends GameState {
 	}
 	
 	private void populateItems() {
-		
 		Item item;
+		/*Item item;
 		
 		item = new Item(tileMap);
 		item.setType(Item.AXE);
@@ -182,8 +186,34 @@ public class PlayState extends GameState {
 		item = new Item(tileMap);
 		item.setType(Item.BOAT);
 		item.setTilePosition(12, 4);
-		items.add(item);
-		
+		items.add(item);*/
+		if ((Control.axe_x) != 0 && (Control.axe_y) !=0 && (Control.boat_x) != 0 && (Control.boat_y) != 0)
+		{
+			//Item item;
+
+			item = new Item(tileMap);
+			item.setType(Item.AXE);
+			item.setTilePosition(Control.axe_x, Control.axe_y);
+			items.add(item);
+
+			item = new Item(tileMap);
+			item.setType(Item.BOAT);
+			item.setTilePosition(Control.boat_x, Control.boat_y);
+			items.add(item);
+
+		}
+		else
+		{
+			item = new Item(tileMap);
+			item.setType(Item.AXE);
+			item.setTilePosition(26, 37);
+			items.add(item);
+
+			item = new Item(tileMap);
+			item.setType(Item.BOAT);
+			item.setTilePosition(12, 4);
+			items.add(item);
+		}
 	}
 	
 	public void update() {
