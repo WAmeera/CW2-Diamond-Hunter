@@ -2,6 +2,7 @@
 
 package com.neet.DiamondHunter.GameState;
 
+import com.neet.DiamondHunter.Main.Game;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -14,10 +15,10 @@ import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
 
 
-public class MenuState extends com.neet.DiamondHunter.GameState.GameState {
+public class MenuState extends GameState {
 	
-	private java.awt.image.BufferedImage bg;
-	private java.awt.image.BufferedImage diamond;
+	private BufferedImage bg;
+	private BufferedImage diamond;
 	
 	private int currentOption = 0;
 	private String[] options = {
@@ -26,28 +27,28 @@ public class MenuState extends com.neet.DiamondHunter.GameState.GameState {
 		"QUIT"
 	};
 	
-	public MenuState(com.neet.DiamondHunter.Manager.GameStateManager gsm) {
+	public MenuState(GameStateManager gsm) {
 		super(gsm);
 	}
 	
 	public void init() {
-		bg = com.neet.DiamondHunter.Manager.Content.MENUBG[0][0];
-		diamond = com.neet.DiamondHunter.Manager.Content.DIAMOND[0][0];
-		com.neet.DiamondHunter.Manager.JukeBox.load("/SFX/collect.wav", "collect");
-		com.neet.DiamondHunter.Manager.JukeBox.load("/SFX/menuoption.wav", "menuoption");
+		bg = Content.MENUBG[0][0];
+		diamond = Content.DIAMOND[0][0];
+		JukeBox.load("/SFX/collect.wav", "collect");
+		JukeBox.load("/SFX/menuoption.wav", "menuoption");
 	}
 	
 	public void update() {
 		handleInput();
 	}
 	
-	public void draw(java.awt.Graphics2D g) {
+	public void draw(Graphics2D g) {
 		
 		g.drawImage(bg, 0, 0, null);
 		
-		com.neet.DiamondHunter.Manager.Content.drawString(g, options[0], 48, 90);
-		com.neet.DiamondHunter.Manager.Content.drawString(g, options[1], 28, 105);
-		com.neet.DiamondHunter.Manager.Content.drawString(g, options[2], 48, 120);
+		Content.drawString(g, options[0], 48, 90);
+		Content.drawString(g, options[1], 28, 105);
+		Content.drawString(g, options[2], 48, 120);
 		
 		if(currentOption == 0) g.drawImage(diamond, 25, 86, null);
 		else if(currentOption == 1) g.drawImage(diamond, 8, 101, null);
@@ -57,27 +58,30 @@ public class MenuState extends com.neet.DiamondHunter.GameState.GameState {
 	}
 	
 	public void handleInput() {
-		if(com.neet.DiamondHunter.Manager.Keys.isPressed(com.neet.DiamondHunter.Manager.Keys.DOWN) && currentOption < options.length - 1) {
-			com.neet.DiamondHunter.Manager.JukeBox.play("menuoption");
+		if(Keys.isPressed(Keys.DOWN) && currentOption < options.length - 1) {
+			JukeBox.play("menuoption");
 			currentOption++;
 		}
-		if(com.neet.DiamondHunter.Manager.Keys.isPressed(com.neet.DiamondHunter.Manager.Keys.UP) && currentOption > 0) {
-			com.neet.DiamondHunter.Manager.JukeBox.play("menuoption");
+		if(Keys.isPressed(Keys.UP) && currentOption > 0) {
+			JukeBox.play("menuoption");
 			currentOption--;
 		}
-		if(com.neet.DiamondHunter.Manager.Keys.isPressed(com.neet.DiamondHunter.Manager.Keys.ENTER)) {
-			com.neet.DiamondHunter.Manager.JukeBox.play("collect");
+		if(Keys.isPressed(Keys.ENTER)) {
+			JukeBox.play("collect");
 			selectOption();
 		}
 	}
 	
 	private void selectOption() {
 		if(currentOption == 0) {
-			gsm.setState(com.neet.DiamondHunter.Manager.GameStateManager.PLAY);
-			
+			gsm.setState(GameStateManager.PLAY);
+
 		}
 		if(currentOption == 1){
-			Mapviewer.Start.main();
+			Game.window.setVisible(false);
+			Start.main();
+
+			
 		}
 		if(currentOption == 2) {
 			System.exit(0);

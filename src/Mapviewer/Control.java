@@ -190,9 +190,8 @@ public class Control {
     @FXML
     public void startGame(){
         Game.main(null);
-        /*Stage stage = (Stage) playButton.getScene().getWindow();
+        Stage stage = (Stage) playButton.getScene().getWindow();
         stage.close();
-*/
     }
 
     /* save the change and write items object into the file using a Serializable hashmap.*/
