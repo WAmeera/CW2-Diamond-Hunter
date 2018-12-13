@@ -5,69 +5,81 @@ package com.neet.DiamondHunter.GameState;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import Mapviewer.Control;
+import Mapviewer.GameMap;
+import Mapviewer.Start;
 import com.neet.DiamondHunter.Manager.Content;
 import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
 
-public class MenuState extends GameState {
+
+public class MenuState extends com.neet.DiamondHunter.GameState.GameState {
 	
-	private BufferedImage bg;
-	private BufferedImage diamond;
+	private java.awt.image.BufferedImage bg;
+	private java.awt.image.BufferedImage diamond;
 	
 	private int currentOption = 0;
 	private String[] options = {
-		"START",
+		"PLAY",
+		"EDIT MODE",
 		"QUIT"
 	};
 	
-	public MenuState(GameStateManager gsm) {
+	public MenuState(com.neet.DiamondHunter.Manager.GameStateManager gsm) {
 		super(gsm);
 	}
 	
 	public void init() {
-		bg = Content.MENUBG[0][0];
-		diamond = Content.DIAMOND[0][0];
-		JukeBox.load("/SFX/collect.wav", "collect");
-		JukeBox.load("/SFX/menuoption.wav", "menuoption");
+		bg = com.neet.DiamondHunter.Manager.Content.MENUBG[0][0];
+		diamond = com.neet.DiamondHunter.Manager.Content.DIAMOND[0][0];
+		com.neet.DiamondHunter.Manager.JukeBox.load("/SFX/collect.wav", "collect");
+		com.neet.DiamondHunter.Manager.JukeBox.load("/SFX/menuoption.wav", "menuoption");
 	}
 	
 	public void update() {
 		handleInput();
 	}
 	
-	public void draw(Graphics2D g) {
+	public void draw(java.awt.Graphics2D g) {
 		
 		g.drawImage(bg, 0, 0, null);
 		
-		Content.drawString(g, options[0], 44, 90);
-		Content.drawString(g, options[1], 48, 100);
+		com.neet.DiamondHunter.Manager.Content.drawString(g, options[0], 48, 90);
+		com.neet.DiamondHunter.Manager.Content.drawString(g, options[1], 28, 105);
+		com.neet.DiamondHunter.Manager.Content.drawString(g, options[2], 48, 120);
 		
 		if(currentOption == 0) g.drawImage(diamond, 25, 86, null);
-		else if(currentOption == 1) g.drawImage(diamond, 25, 96, null);
+		else if(currentOption == 1) g.drawImage(diamond, 8, 101, null);
+		else if(currentOption == 2) g.drawImage(diamond, 25, 116, null);
+
 		
 	}
 	
 	public void handleInput() {
-		if(Keys.isPressed(Keys.DOWN) && currentOption < options.length - 1) {
-			JukeBox.play("menuoption");
+		if(com.neet.DiamondHunter.Manager.Keys.isPressed(com.neet.DiamondHunter.Manager.Keys.DOWN) && currentOption < options.length - 1) {
+			com.neet.DiamondHunter.Manager.JukeBox.play("menuoption");
 			currentOption++;
 		}
-		if(Keys.isPressed(Keys.UP) && currentOption > 0) {
-			JukeBox.play("menuoption");
+		if(com.neet.DiamondHunter.Manager.Keys.isPressed(com.neet.DiamondHunter.Manager.Keys.UP) && currentOption > 0) {
+			com.neet.DiamondHunter.Manager.JukeBox.play("menuoption");
 			currentOption--;
 		}
-		if(Keys.isPressed(Keys.ENTER)) {
-			JukeBox.play("collect");
+		if(com.neet.DiamondHunter.Manager.Keys.isPressed(com.neet.DiamondHunter.Manager.Keys.ENTER)) {
+			com.neet.DiamondHunter.Manager.JukeBox.play("collect");
 			selectOption();
 		}
 	}
 	
 	private void selectOption() {
 		if(currentOption == 0) {
-			gsm.setState(GameStateManager.PLAY);
+			gsm.setState(com.neet.DiamondHunter.Manager.GameStateManager.PLAY);
+			
 		}
-		if(currentOption == 1) {
+		if(currentOption == 1){
+			Mapviewer.Start.main();
+		}
+		if(currentOption == 2) {
 			System.exit(0);
 		}
 	}

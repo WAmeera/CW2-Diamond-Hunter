@@ -8,16 +8,16 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 
-public class Start extends Application {
+public class Start extends javafx.application.Application {
     @Override
-    public void start(Stage primaryStage) {
+    public void start(javafx.stage.Stage primaryStage) {
         try {
-            Parent content = FXMLLoader.load(getClass().getClassLoader().getResource("Mapviewer/editor.fxml"));
-            Scene scene = new Scene(content);
+            javafx.scene.Parent content = javafx.fxml.FXMLLoader.load(getClass().getClassLoader().getResource("Mapviewer/editor.fxml"));
+            javafx.scene.Scene scene = new javafx.scene.Scene(content);
             primaryStage.setScene(scene);
             primaryStage.setOnCloseRequest(e->{
                 e.consume();
-                Mapviewer.Control cp = new Mapviewer.Control();
+                Control cp = new Control();
                 try {
 
                     cp.closeProgram();
@@ -31,7 +31,7 @@ public class Start extends Application {
         }
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main() {
+        launch();
     }
 }
