@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcbd8510-4b25-42cb-a5c5-30ac884a449b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bin/com/neet/DiamondHunter/GameState/MenuState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Mapviewer/Control$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Mapviewer/Control$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Mapviewer/Control$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Mapviewer/Control$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Mapviewer/Control.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Mapviewer/Control.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/neet/DiamondHunter/GameState/PlayState.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/neet/DiamondHunter/GameState/PlayState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Mapviewer/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mapviewer/Control.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/MenuState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neet/DiamondHunter/Main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neet/DiamondHunter/Main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PlayState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PlayState.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,37 +18,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Mapviewer/Start.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-70" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mapviewer/Control.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="192" column="8" selection-start-line="192" selection-start-column="8" selection-end-line="194" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/Main/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            <state relative-caret-position="474">
+              <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1060#1061#0" expanded="true" />
+                <element signature="e#1084#1085#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/MenuState.java">
+        <entry file="file://$PROJECT_DIR$/src/Mapviewer/Control.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="80" column="12" lean-forward="true" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
+            <state relative-caret-position="-155">
+              <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,28 +46,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/GameOverState.java">
+        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PlayState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="67" column="56" lean-forward="true" selection-start-line="67" selection-start-column="56" selection-end-line="67" selection-end-column="56" />
+            <state relative-caret-position="17">
+              <caret line="195" column="28" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/GameState.java">
+        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/Main/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            <state relative-caret-position="-194">
+              <caret line="61" column="23" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/Manager/Keys.java">
+        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/MenuState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="253">
+              <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PauseState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -88,13 +89,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PlayState.java" />
         <option value="$PROJECT_DIR$/src/Mapviewer/editor.fxml" />
         <option value="$PROJECT_DIR$/src/Mapviewer/Start.java" />
         <option value="$PROJECT_DIR$/src/com/neet/DiamondHunter/Main/Game.java" />
-        <option value="$PROJECT_DIR$/src/Mapviewer/Control.java" />
         <option value="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/MenuState.java" />
         <option value="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/GameOverState.java" />
+        <option value="$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PlayState.java" />
+        <option value="$PROJECT_DIR$/src/Mapviewer/Control.java" />
       </list>
     </option>
   </component>
@@ -109,42 +110,69 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="CW2-Diamond-Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
               <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CW2-Diamond-Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
               <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CW2-Diamond-Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
               <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DiamondHunter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CW2-Diamond-Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DiamondHunter" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
               <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DiamondHunter" type="462c0819:PsiDirectoryNode" />
               <item name="GameState" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CW2-Diamond-Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DiamondHunter" type="462c0819:PsiDirectoryNode" />
+              <item name="HUD" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DiamondHunter" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
               <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DiamondHunter" type="462c0819:PsiDirectoryNode" />
               <item name="Manager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CW2-Diamond-Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DiamondHunter" type="462c0819:PsiDirectoryNode" />
+              <item name="TileMap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Diamond Hunter" type="b2602c69:ProjectViewProjectNode" />
               <item name="CW2-Diamond-Hunter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Mapviewer" type="462c0819:PsiDirectoryNode" />
@@ -153,10 +181,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544694734102" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544712008413" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -177,7 +206,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Play">
+  <component name="RunManager" selected="Application.MapViewer">
     <configuration name="MapViewer" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Mapviewer.Start" />
       <module name="Diamond Hunter" />
@@ -214,7 +243,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2526475" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25642964" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -223,8 +252,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32872504" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39938557" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32872504" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39938557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -257,23 +286,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PlayState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="195" column="61" selection-start-line="195" selection-start-column="61" selection-end-line="195" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Mapviewer/editor.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="62" column="64" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/Entity/Item.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -286,18 +305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mapviewer/Start.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mapviewer/Control.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="192" column="8" selection-start-line="192" selection-start-column="8" selection-end-line="194" />
         </state>
       </provider>
     </entry>
@@ -332,7 +339,33 @@
     <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/MenuState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="80" column="12" lean-forward="true" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
+          <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mapviewer/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neet/DiamondHunter/GameState/PlayState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="195" column="28" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mapviewer/Control.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155">
+          <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

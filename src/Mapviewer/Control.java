@@ -1,7 +1,11 @@
 package Mapviewer;
 
 import com.neet.DiamondHunter.Main.Game;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -22,10 +26,10 @@ import javafx.stage.Stage;
 
 public class Control {
     int x, y;
-    public static int axe_x;
-    public static int axe_y;
-    public static int boat_x;
-    public static int boat_y;
+    public static int axe_x ; //
+    public static int axe_y; //
+    public static int boat_x; //
+    public static int boat_y ; //
     public static final int BOAT = 0;
     public static final int AXE = 1;
     public static final int TILESIZE = 16;
@@ -38,8 +42,8 @@ public class Control {
     private ObjectOutputStream objectWriter;
 
     File file;
-    Tuple axe = null;   //store the item's positon
-    Tuple boat = null;
+    Tuple axe;   //store the item's positon
+    Tuple boat;
     HashMap<Integer, Tuple> items;
     @FXML
     private TextArea xPosition, yPosition;
@@ -61,6 +65,8 @@ public class Control {
     }
     public void initialize() {
         //initialize the picture resource
+        axe = new Mapviewer.Tuple(37, 26);
+        boat = new Tuple (4,12);
         map = new Image(getClass().getResourceAsStream("/Tilesets/testtileset.gif"));
         image = new Image(getClass().getResourceAsStream("/Sprites/items.gif"));
         gameMap = new GameMap(TILESIZE, TILESIZE, map);
@@ -68,41 +74,17 @@ public class Control {
         gContext = canvas.getGraphicsContext2D();
         //draw the map
         gameMap.drawMap(gContext);
-      
-        file = new File("Item.data");
-        if (!file.exists()) {
+        items = new HashMap<Integer, Tuple>();
+        drawItem(0,boat.x, boat.y);
+        drawItem(1, axe.x, axe.y);
+        }
 
-            items = new HashMap<Integer, Tuple>();
-
-        }
-        else {
-            //load the item file
-            try {
-                objectReader = new ObjectInputStream(new FileInputStream(file));
-                items = (HashMap<Integer, Tuple>) objectReader.readObject();
-                objectReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (RuntimeException e) {
-                e.printStackTrace();
-            }
-
-        }
-        if (items.containsKey(0)) {
-            boat = items.get(0);
-            drawItem(0, boat.x, boat.y);
-        }
-        if (items.containsKey(1)) {
-            axe = items.get(1);
-            drawItem(1, axe.x, axe.y);
-        }
-    }
 
     /* this method is used to handle the button action*/
     @FXML
-    public void axePressed(){
+    public void axePressed() {
+        displayCoordinate(); //////
+
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -119,12 +101,12 @@ public class Control {
 
     @FXML
     public void boatPressed() {
-
+        displayCoordinate();////
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                x = (int) event.getX() / 16;
-                y = (int) event.getY() / 16;
+                x = (int) event.getX() / TILESIZE;
+                y = (int) event.getY() / TILESIZE;
                 mapValue = gameMap.getMap();
                 int currentPoint = mapValue[y][x];
                 checkAvailable(currentPoint, x, y, BOAT);
@@ -145,39 +127,43 @@ public class Control {
         } else {
 
             if (type == AXE) {
-                if (axe != null) {     //if already have axe, change the positon and draw the axe again
-                    drawItem(3, axe.x, axe.y);
-                    axe.setPosition(x, y);
-                    displayCoordinate(x,y);
-                    drawItem(1, x, y);
-                } else {                  //if do not have item, add one to the axe object and draw
-                    drawItem(1, x, y);
-                    axe = new Tuple(x, y);
-                    displayCoordinate(x,y);
-                }
+               if (axe != null) {     //if already have axe, change the positon and draw the axe again
+                   drawItem(3, axe.x, axe.y); /////3
+                   axe.setPosition(x, y);
+                   displayCoordinate();
+                   drawItem(1, x, y);///1
+               } else {                  //if do not have item, add one to the axe object and draw
+                   //drawItem(1, axe_x, axe_y);  ////
+                   drawItem(3, axe.x, axe.y);
+                   axe = new Tuple(x, y);
+                   displayCoordinate();
+               }
             } else {
                 if (boat != null) {     //if already have boat, change the positon and draw the axe again
-                    drawItem(3, boat.x, boat.y);
+                    drawItem(3, boat.x, boat.y);//3
                     boat.setPosition(x, y);
-                    displayCoordinate(x,y);
-                    drawItem(0, x, y);
+                    displayCoordinate();
+                    drawItem(0, x, y);////0
                 } else {                  //if do not have item, add one to the boat object and draw
-                    drawItem(0, x, y);
+                    drawItem(0, boat_x, boat_y);
                     boat = new Tuple(x, y);
-                    displayCoordinate(x,y);
+                    displayCoordinate();
                 }
             }
         }
     }
+
+
     public void displayCoordinate() //display the item position on TextArea after set
-    {
-        xPosition.setText("");
-        yPosition.setText("");
-    }
-    public void displayCoordinate(int x, int y) //display the item position on TextArea after set
     {
         xPosition.setText(Integer.toString(x));
         yPosition.setText(Integer.toString(y));
+    }
+
+    public void displayCoordinate2() //display the item position on TextArea after set
+    {
+        xPosition.setText("");
+        yPosition.setText("");
     }
 
     public void ringAlert(Alert.AlertType alertType, String message) {
@@ -190,8 +176,12 @@ public class Control {
     @FXML
     public void startGame(){
         Game.main(null);
+
+        // get a handle to the stage
         Stage stage = (Stage) playButton.getScene().getWindow();
+        // do what you have to do
         stage.close();
+
     }
 
     /* save the change and write items object into the file using a Serializable hashmap.*/
@@ -235,11 +225,12 @@ public class Control {
         }
 
     }
+
     @FXML
     void resetPosition()
     {
         initialize();
-        displayCoordinate();
+        displayCoordinate2();
     }
 
 
