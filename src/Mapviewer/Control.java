@@ -102,8 +102,7 @@ public class Control {
 
     /* this method is used to handle the button action*/
     @FXML
-    public void axePressed() {
-        displayCoordinate(axe.x,axe.y);
+    public void axePressed(){
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -120,12 +119,12 @@ public class Control {
 
     @FXML
     public void boatPressed() {
-        displayCoordinate(boat.x,boat.y);
+
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                x = (int) event.getX() / TILESIZE;
-                y = (int) event.getY() / TILESIZE;
+                x = (int) event.getX() / 16;
+                y = (int) event.getY() / 16;
                 mapValue = gameMap.getMap();
                 int currentPoint = mapValue[y][x];
                 checkAvailable(currentPoint, x, y, BOAT);
@@ -170,17 +169,17 @@ public class Control {
             }
         }
     }
-
-    public void displayCoordinate(int x, int y) //display the item position on TextArea after set
-    {
-        xPosition.setText(Integer.toString(x));
-        yPosition.setText(Integer.toString(y));
-    }
     public void displayCoordinate() //display the item position on TextArea after set
     {
         xPosition.setText("");
         yPosition.setText("");
     }
+    public void displayCoordinate(int x, int y) //display the item position on TextArea after set
+    {
+        xPosition.setText(Integer.toString(x));
+        yPosition.setText(Integer.toString(y));
+    }
+
     public void ringAlert(Alert.AlertType alertType, String message) {
         Alert alert = new Alert(alertType, message);
         alert.showAndWait();
