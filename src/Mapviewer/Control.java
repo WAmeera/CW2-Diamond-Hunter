@@ -20,10 +20,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-//static int axe_x;
-//static int axe_y;
-//static int boat_x;
-//static int boat_y;
 public class Control {
     int x, y;
     public static int axe_x;
@@ -72,10 +68,12 @@ public class Control {
         gContext = canvas.getGraphicsContext2D();
         //draw the map
         gameMap.drawMap(gContext);
+      
         file = new File("Item.data");
         if (!file.exists()) {
 
             items = new HashMap<Integer, Tuple>();
+
         }
         else {
             //load the item file
@@ -105,6 +103,7 @@ public class Control {
     /* this method is used to handle the button action*/
     @FXML
     public void axePressed() {
+        displayCoordinate(axe.x,axe.y);
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -121,6 +120,7 @@ public class Control {
 
     @FXML
     public void boatPressed() {
+        displayCoordinate(boat.x,boat.y);
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -149,34 +149,38 @@ public class Control {
                 if (axe != null) {     //if already have axe, change the positon and draw the axe again
                     drawItem(3, axe.x, axe.y);
                     axe.setPosition(x, y);
-                    displayCoordinate();
+                    displayCoordinate(x,y);
                     drawItem(1, x, y);
                 } else {                  //if do not have item, add one to the axe object and draw
                     drawItem(1, x, y);
                     axe = new Tuple(x, y);
-                    displayCoordinate();
+                    displayCoordinate(x,y);
                 }
             } else {
                 if (boat != null) {     //if already have boat, change the positon and draw the axe again
                     drawItem(3, boat.x, boat.y);
                     boat.setPosition(x, y);
-                    displayCoordinate();
+                    displayCoordinate(x,y);
                     drawItem(0, x, y);
                 } else {                  //if do not have item, add one to the boat object and draw
                     drawItem(0, x, y);
                     boat = new Tuple(x, y);
-                    displayCoordinate();
+                    displayCoordinate(x,y);
                 }
             }
         }
     }
 
-    public void displayCoordinate() //display the item position on TextArea after set
+    public void displayCoordinate(int x, int y) //display the item position on TextArea after set
     {
         xPosition.setText(Integer.toString(x));
         yPosition.setText(Integer.toString(y));
     }
-
+    public void displayCoordinate() //display the item position on TextArea after set
+    {
+        xPosition.setText("");
+        yPosition.setText("");
+    }
     public void ringAlert(Alert.AlertType alertType, String message) {
         Alert alert = new Alert(alertType, message);
         alert.showAndWait();
@@ -187,30 +191,14 @@ public class Control {
     @FXML
     public void startGame(){
         Game.main(null);
-        // get a handle to the stage
-        Stage stage = (Stage) playButton.getScene().getWindow();
-        // do what you have to do
+        /*Stage stage = (Stage) playButton.getScene().getWindow();
         stage.close();
-
+*/
     }
 
     /* save the change and write items object into the file using a Serializable hashmap.*/
     @FXML
     void saveClose() {
-        /*if (boat != null) {
-            items.put(0, boat);
-        }
-        if (axe != null) {
-            items.put(1, axe);
-        }
-        if (!items.isEmpty()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            objectWriter(file);
-        }*/
         axe_x = axe.x;
         axe_y = axe.y;
         boat_x = boat.x;
@@ -248,6 +236,12 @@ public class Control {
             ioe.printStackTrace();
         }
 
+    }
+    @FXML
+    void resetPosition()
+    {
+        initialize();
+        displayCoordinate();
     }
 
 
