@@ -193,12 +193,12 @@ public class PlayState extends GameState {
 
 			item = new Item(tileMap);
 			item.setType(Item.AXE);
-			item.setTilePosition(Control.axe_x, Control.axe_y);
+			item.setTilePosition(Control.axe_y, Control.axe_x);
 			items.add(item);
 
 			item = new Item(tileMap);
 			item.setType(Item.BOAT);
-			item.setTilePosition(Control.boat_x, Control.boat_y);
+			item.setTilePosition(Control.boat_y, Control.boat_x);
 			items.add(item);
 
 		}
