@@ -1,19 +1,21 @@
 package Mapviewer;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
-public class Start extends javafx.application.Application {
+public class Start extends Application {
     @Override
-    public void start(javafx.stage.Stage primaryStage) {
+    public void start(Stage primaryStage) {
         try {
-            javafx.scene.Parent content = javafx.fxml.FXMLLoader.load(getClass().getClassLoader().getResource("Mapviewer/editor.fxml"));
-            javafx.scene.Scene scene = new javafx.scene.Scene(content);
+            Parent content = FXMLLoader.load(getClass().getClassLoader().getResource("Mapviewer/editor.fxml"));
+            Scene scene = new Scene(content);
             primaryStage.setScene(scene);
             primaryStage.setOnCloseRequest(e->{
                 e.consume();
@@ -21,14 +23,18 @@ public class Start extends javafx.application.Application {
                 try {
 
                     cp.closeProgram();
-                } catch (java.io.IOException e1) {
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             });
+            Image icon = new Image("Mapviewer/diamond.png");
+            primaryStage.getIcons().add(icon);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
 
     public static void main() {

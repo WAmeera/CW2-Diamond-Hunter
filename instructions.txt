@@ -1,0 +1,5 @@
+Instructions
+1. AXE button : Click on AXE button to start moving the AXE in the map
+2. BOAT button : Click on BOAT button to start moving the BOAT in the map
+3. RESET : reset all changes to the position of the AXE
+4. EXIT : discard all and exit map

@@ -16,11 +16,13 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -48,25 +50,27 @@ public class Control {
     @FXML
     private TextArea xPosition, yPosition;
     @FXML
+    Label axeYLabel,axeXLabel,boatXLabel,boatYLabel,statusLabel;
+
+    @FXML
     private Canvas canvas;
-    public static javafx.stage.Stage exitScene;
     /*Confirm closing program and saves any changes have been done by user*/
     public void  closeProgram() throws IOException {
 
-        //Stage window = new Stage();
-        exitScene.initModality(Modality.APPLICATION_MODAL);
+        Stage window = new Stage();
+        window.initModality(Modality.APPLICATION_MODAL);
         Parent root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
 
 
-        exitScene.setTitle("Confirm Exit");
-        exitScene.setScene(new Scene(root));
-        exitScene.showAndWait();
+        window.setTitle("Confirm Exit");
+        window.setScene(new Scene(root));
+        window.showAndWait();
 
     }
 
     public void initialize() {
         //initialize the picture resource
-        axe = new Mapviewer.Tuple(37, 26);
+        axe = new Tuple(37, 26);
         boat = new Tuple (4,12);
         map = new Image(getClass().getResourceAsStream("/Tilesets/testtileset.gif"));
         image = new Image(getClass().getResourceAsStream("/Sprites/items.gif"));
@@ -76,16 +80,25 @@ public class Control {
         //draw the map
         gameMap.drawMap(gContext);
         items = new HashMap<Integer, Tuple>();
+        //Draw items
         drawItem(0,boat.x, boat.y);
         drawItem(1, axe.x, axe.y);
-        }
+
+        boatXLabel.setText(Integer.toString(boat.x));
+        boatYLabel.setText(Integer.toString(boat.y));
+        axeXLabel.setText(Integer.toString(axe.x));
+        axeYLabel.setText(Integer.toString(axe.y));
+
+
+
+    }
 
 
     /* this method is used to handle the button action*/
     @FXML
     public void axePressed() {
         displayCoordinate(); //////
-
+        statusLabel.setText("Axe button pressed");
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -103,6 +116,7 @@ public class Control {
     @FXML
     public void boatPressed() {
         displayCoordinate();////
+        statusLabel.setText("Boat button pressed");
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -139,6 +153,7 @@ public class Control {
                    axe = new Tuple(x, y);
                    displayCoordinate();
                }
+                statusLabel.setText("Axe location changed");
             } else {
                 if (boat != null) {     //if already have boat, change the positon and draw the axe again
                     drawItem(3, boat.x, boat.y);//3
@@ -150,6 +165,7 @@ public class Control {
                     boat = new Tuple(x, y);
                     displayCoordinate();
                 }
+                statusLabel.setText("Boat location changed");
             }
         }
     }
@@ -157,15 +173,18 @@ public class Control {
 
     public void displayCoordinate() //display the item position on TextArea after set
     {
-        xPosition.setText(Integer.toString(x));
-        yPosition.setText(Integer.toString(y));
+        axeXLabel.setText(Integer.toString(axe.x));
+        axeYLabel.setText(Integer.toString(axe.y));
+        boatXLabel.setText(Integer.toString(boat.x));
+        boatYLabel.setText(Integer.toString(boat.y));
+
     }
 
-    public void displayCoordinate2() //display the item position on TextArea after set
+   /* public void displayCoordinate2() //display the item position on TextArea after set
     {
         xPosition.setText("");
         yPosition.setText("");
-    }
+    }*/
 
     public void ringAlert(Alert.AlertType alertType, String message) {
         Alert alert = new Alert(alertType, message);
@@ -231,7 +250,8 @@ public class Control {
     void resetPosition()
     {
         initialize();
-        displayCoordinate2();
+        displayCoordinate();
+        statusLabel.setText("Reset pressed");
     }
 
 

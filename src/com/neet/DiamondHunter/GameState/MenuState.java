@@ -84,7 +84,7 @@ public class MenuState extends GameState {
 					Start.main();
 					Game.window.setVisible(false);
 				} catch (IllegalStateException e) {
-					System.out.println("Cannot open");
+					//System.out.println("Cannot open");
 				}
 
 
