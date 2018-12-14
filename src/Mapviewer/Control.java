@@ -49,20 +49,21 @@ public class Control {
     private TextArea xPosition, yPosition;
     @FXML
     private Canvas canvas;
-
+    public static javafx.stage.Stage exitScene;
     /*Confirm closing program and saves any changes have been done by user*/
     public void  closeProgram() throws IOException {
 
-        Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
+        //Stage window = new Stage();
+        exitScene.initModality(Modality.APPLICATION_MODAL);
         Parent root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
 
 
-        window.setTitle("Confirm Exit");
-        window.setScene(new Scene(root));
-        window.showAndWait();
+        exitScene.setTitle("Confirm Exit");
+        exitScene.setScene(new Scene(root));
+        exitScene.showAndWait();
 
     }
+
     public void initialize() {
         //initialize the picture resource
         axe = new Mapviewer.Tuple(37, 26);

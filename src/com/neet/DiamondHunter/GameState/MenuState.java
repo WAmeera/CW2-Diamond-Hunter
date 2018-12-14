@@ -2,17 +2,16 @@
 
 package com.neet.DiamondHunter.GameState;
 
-import com.neet.DiamondHunter.Main.Game;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-
-import Mapviewer.Control;
-import Mapviewer.GameMap;
 import Mapviewer.Start;
+import com.neet.DiamondHunter.Main.Game;
 import com.neet.DiamondHunter.Manager.Content;
 import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 
 public class MenuState extends GameState {
@@ -78,14 +77,22 @@ public class MenuState extends GameState {
 
 		}
 		if(currentOption == 1){
-			Game.window.setVisible(false);
-			Start.main();
 
-			
+
+
+				try {
+					Start.main();
+					Game.window.setVisible(false);
+				} catch (IllegalStateException e) {
+					System.out.println("Cannot open");
+				}
+
+
+
 		}
 		if(currentOption == 2) {
 			System.exit(0);
 		}
 	}
-	
+
 }
