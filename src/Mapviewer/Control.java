@@ -50,7 +50,7 @@ public class Control {
     @javafx.fxml.FXML
     private javafx.scene.control.TextArea xPosition, yPosition;
     @javafx.fxml.FXML
-    javafx.scene.control.Label axeYLabel,axeXLabel,boatXLabel,boatYLabel,statusLabel;
+    javafx.scene.control.Label axeLabel,boatLabel;
 
     @javafx.fxml.FXML
     private javafx.scene.canvas.Canvas canvas;
@@ -84,10 +84,9 @@ public class Control {
         drawItem(0,boat.x, boat.y);
         drawItem(1, axe.x, axe.y);
 
-        boatXLabel.setText(Integer.toString(boat.x));
-        boatYLabel.setText(Integer.toString(boat.y));
-        axeXLabel.setText(Integer.toString(axe.x));
-        axeYLabel.setText(Integer.toString(axe.y));
+        boatLabel.setText("Boat: ("+boat.x+","+boat.y+")");
+        axeLabel.setText("Axe: ("+axe.x+","+axe.y+")");
+        //axeYLabel.setText(Integer.toString(axe.y));
 
 
 
@@ -98,7 +97,7 @@ public class Control {
     @javafx.fxml.FXML
     public void axePressed() {
         displayCoordinate(); //////
-        statusLabel.setText("Axe button pressed");
+
         canvas.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
@@ -116,7 +115,7 @@ public class Control {
     @javafx.fxml.FXML
     public void boatPressed() {
         displayCoordinate();////
-        statusLabel.setText("Boat button pressed");
+
         canvas.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
@@ -153,7 +152,7 @@ public class Control {
                    axe = new Mapviewer.Tuple(x, y);
                    displayCoordinate();
                }
-                statusLabel.setText("Axe location changed");
+
             } else {
                 if (boat != null) {     //if already have boat, change the positon and draw the axe again
                     drawItem(3, boat.x, boat.y);//3
@@ -165,7 +164,7 @@ public class Control {
                     boat = new Mapviewer.Tuple(x, y);
                     displayCoordinate();
                 }
-                statusLabel.setText("Boat location changed");
+
             }
         }
     }
@@ -173,10 +172,9 @@ public class Control {
 
     public void displayCoordinate() //display the item position on TextArea after set
     {
-        axeXLabel.setText(Integer.toString(axe.x));
-        axeYLabel.setText(Integer.toString(axe.y));
-        boatXLabel.setText(Integer.toString(boat.x));
-        boatYLabel.setText(Integer.toString(boat.y));
+        axeLabel.setText(Integer.toString(axe.x));
+        axeLabel.setText("Axe: ("+axe.x+","+axe.y+")");
+        boatLabel.setText("Boat: ("+boat.x+","+boat.y+")");
 
     }
 
@@ -251,7 +249,7 @@ public class Control {
     {
         initialize();
         displayCoordinate();
-        statusLabel.setText("Reset pressed");
+
     }
 
 
