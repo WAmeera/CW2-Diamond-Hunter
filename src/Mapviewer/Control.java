@@ -36,50 +36,50 @@ public class Control {
     public static final int AXE = 1;
     public static final int TILESIZE = 16;
     public int[][] mapValue;   // the value of each of the map block
-    public Image map;
-    public Image image;
-    private GameMap gameMap;
-    private GraphicsContext gContext;
-    private ObjectInputStream objectReader;
-    private ObjectOutputStream objectWriter;
+    public javafx.scene.image.Image map;
+    public javafx.scene.image.Image image;
+    private Mapviewer.GameMap gameMap;
+    private javafx.scene.canvas.GraphicsContext gContext;
+    private java.io.ObjectInputStream objectReader;
+    private java.io.ObjectOutputStream objectWriter;
 
-    File file;
-    Tuple axe;   //store the item's positon
-    Tuple boat;
-    HashMap<Integer, Tuple> items;
-    @FXML
-    private TextArea xPosition, yPosition;
-    @FXML
-    Label axeYLabel,axeXLabel,boatXLabel,boatYLabel,statusLabel;
+    java.io.File file;
+    Mapviewer.Tuple axe;   //store the item's positon
+    Mapviewer.Tuple boat;
+    java.util.HashMap<Integer, Tuple> items;
+    @javafx.fxml.FXML
+    private javafx.scene.control.TextArea xPosition, yPosition;
+    @javafx.fxml.FXML
+    javafx.scene.control.Label axeYLabel,axeXLabel,boatXLabel,boatYLabel,statusLabel;
 
-    @FXML
-    private Canvas canvas;
+    @javafx.fxml.FXML
+    private javafx.scene.canvas.Canvas canvas;
     /*Confirm closing program and saves any changes have been done by user*/
-    public void  closeProgram() throws IOException {
+    public void  closeProgram() throws java.io.IOException {
 
-        Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
-        Parent root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
+        javafx.stage.Stage window = new javafx.stage.Stage();
+        window.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+        javafx.scene.Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("sample2.fxml"));
 
 
         window.setTitle("Confirm Exit");
-        window.setScene(new Scene(root));
+        window.setScene(new javafx.scene.Scene(root));
         window.showAndWait();
 
     }
 
     public void initialize() {
         //initialize the picture resource
-        axe = new Tuple(37, 26);
-        boat = new Tuple (4,12);
-        map = new Image(getClass().getResourceAsStream("/Tilesets/testtileset.gif"));
-        image = new Image(getClass().getResourceAsStream("/Sprites/items.gif"));
-        gameMap = new GameMap(TILESIZE, TILESIZE, map);
+        axe = new Mapviewer.Tuple(37, 26);
+        boat = new Mapviewer.Tuple (4,12);
+        map = new javafx.scene.image.Image(getClass().getResourceAsStream("/Tilesets/testtileset.gif"));
+        image = new javafx.scene.image.Image(getClass().getResourceAsStream("/Sprites/items.gif"));
+        gameMap = new Mapviewer.GameMap(TILESIZE, TILESIZE, map);
         gameMap.loadMap("/Maps/testmap.map");
         gContext = canvas.getGraphicsContext2D();
         //draw the map
         gameMap.drawMap(gContext);
-        items = new HashMap<Integer, Tuple>();
+        items = new java.util.HashMap<Integer, Tuple>();
         //Draw items
         drawItem(0,boat.x, boat.y);
         drawItem(1, axe.x, axe.y);
@@ -95,13 +95,13 @@ public class Control {
 
 
     /* this method is used to handle the button action*/
-    @FXML
+    @javafx.fxml.FXML
     public void axePressed() {
         displayCoordinate(); //////
         statusLabel.setText("Axe button pressed");
-        canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        canvas.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
-            public void handle(MouseEvent event) {
+            public void handle(javafx.scene.input.MouseEvent event) {
                 x = (int) event.getX() / TILESIZE;
                 y = (int) event.getY() / TILESIZE;
                 mapValue = gameMap.getMap();
@@ -113,13 +113,13 @@ public class Control {
 
     }
 
-    @FXML
+    @javafx.fxml.FXML
     public void boatPressed() {
         displayCoordinate();////
         statusLabel.setText("Boat button pressed");
-        canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        canvas.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
-            public void handle(MouseEvent event) {
+            public void handle(javafx.scene.input.MouseEvent event) {
                 x = (int) event.getX() / TILESIZE;
                 y = (int) event.getY() / TILESIZE;
                 mapValue = gameMap.getMap();
@@ -138,7 +138,7 @@ public class Control {
 
         if (value == 20 || value == 22 || value == 21) {        //item can not set on the barrier
 
-            ringAlert(Alert.AlertType.ERROR, "This positon is not available!");
+            ringAlert(javafx.scene.control.Alert.AlertType.ERROR, "This positon is not available!");
         } else {
 
             if (type == AXE) {
@@ -150,7 +150,7 @@ public class Control {
                } else {                  //if do not have item, add one to the axe object and draw
                    //drawItem(1, axe_x, axe_y);  ////
                    drawItem(3, axe.x, axe.y);
-                   axe = new Tuple(x, y);
+                   axe = new Mapviewer.Tuple(x, y);
                    displayCoordinate();
                }
                 statusLabel.setText("Axe location changed");
@@ -162,7 +162,7 @@ public class Control {
                     drawItem(0, x, y);////0
                 } else {                  //if do not have item, add one to the boat object and draw
                     drawItem(0, boat_x, boat_y);
-                    boat = new Tuple(x, y);
+                    boat = new Mapviewer.Tuple(x, y);
                     displayCoordinate();
                 }
                 statusLabel.setText("Boat location changed");
@@ -186,26 +186,26 @@ public class Control {
         yPosition.setText("");
     }*/
 
-    public void ringAlert(Alert.AlertType alertType, String message) {
-        Alert alert = new Alert(alertType, message);
+    public void ringAlert(javafx.scene.control.Alert.AlertType alertType, String message) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(alertType, message);
         alert.showAndWait();
     }
 
-    @FXML Button playButton;
+    @javafx.fxml.FXML javafx.scene.control.Button playButton;
     /*start the Main Game*/
-    @FXML
+    @javafx.fxml.FXML
     public void startGame(){
-        Game.main(null);
+        com.neet.DiamondHunter.Main.Game.main(null);
 
         // get a handle to the stage
-        Stage stage = (Stage) playButton.getScene().getWindow();
+        javafx.stage.Stage stage = (javafx.stage.Stage) playButton.getScene().getWindow();
         // do what you have to do
         stage.close();
 
     }
 
     /* save the change and write items object into the file using a Serializable hashmap.*/
-    @FXML
+    @javafx.fxml.FXML
     void saveClose() {
         axe_x = axe.x;
         axe_y = axe.y;
@@ -218,35 +218,35 @@ public class Control {
 
     /*draw the item on canvas, using pixelReader to cut the picture*/
     public void drawItem(int type, int x, int y) {
-        PixelReader pixelReader = image.getPixelReader();
-        PixelReader p = map.getPixelReader();
+        javafx.scene.image.PixelReader pixelReader = image.getPixelReader();
+        javafx.scene.image.PixelReader p = map.getPixelReader();
 
         if (type == AXE) {
-            canvas.getGraphicsContext2D().drawImage(new WritableImage(pixelReader, TILESIZE, TILESIZE, TILESIZE, TILESIZE), x * TILESIZE, y * TILESIZE);
+            canvas.getGraphicsContext2D().drawImage(new javafx.scene.image.WritableImage(pixelReader, TILESIZE, TILESIZE, TILESIZE, TILESIZE), x * TILESIZE, y * TILESIZE);
         }
         else if (type == BOAT) {
-            canvas.getGraphicsContext2D().drawImage(new WritableImage(pixelReader, 0, TILESIZE, TILESIZE, TILESIZE), x * TILESIZE, y * TILESIZE);
+            canvas.getGraphicsContext2D().drawImage(new javafx.scene.image.WritableImage(pixelReader, 0, TILESIZE, TILESIZE, TILESIZE), x * TILESIZE, y * TILESIZE);
         }
         //draw a grass block to replace when moving the axe or boat
         else {
-            canvas.getGraphicsContext2D().drawImage(new WritableImage(p, TILESIZE, 0, TILESIZE, TILESIZE), x * TILESIZE, y * TILESIZE);
+            canvas.getGraphicsContext2D().drawImage(new javafx.scene.image.WritableImage(p, TILESIZE, 0, TILESIZE, TILESIZE), x * TILESIZE, y * TILESIZE);
         }
     }
 
     /*implements the object writer*/
-    public void objectWriter(File file) {
+    public void objectWriter(java.io.File file) {
         try {
-            objectWriter = new ObjectOutputStream(new FileOutputStream(file));
+            objectWriter = new java.io.ObjectOutputStream(new java.io.FileOutputStream(file));
             objectWriter.writeObject(items);
             objectWriter.close();
-        } catch (IOException ioe) {
+        } catch (java.io.IOException ioe) {
             System.err.println("cannot write Item.data for writing!");
             ioe.printStackTrace();
         }
 
     }
 
-    @FXML
+    @javafx.fxml.FXML
     void resetPosition()
     {
         initialize();
