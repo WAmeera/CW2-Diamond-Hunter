@@ -10,8 +10,6 @@ import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 
 public class MenuState extends GameState {
@@ -80,11 +78,13 @@ public class MenuState extends GameState {
 
 
 
-				try {
+			/*Handles exception where map does not open except once
+			 and prevents Edit map open more than once
+			*/
+			try {
 					Start.main();
 					Game.window.setVisible(false);
 				} catch (IllegalStateException e) {
-					//System.out.println("Cannot open");
 				}
 
 

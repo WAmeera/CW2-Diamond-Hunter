@@ -10,11 +10,12 @@ public class Sample2 {
 
 
     @FXML Button closeButton;
-    //Mapviewer.Control c = new Control();
+    //Exit program fully when click confirm button in dialog
     public void closeProgram(){
 
         System.exit(0);
     }
+    //When click cancel only confirm exit dialog will close and return to mapview
     @FXML
     public void handleCloseButtonAction() {
         // get a handle to the stage
