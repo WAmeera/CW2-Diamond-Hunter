@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="517.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Mapviewer.Control">
+<BorderPane prefHeight="517.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Mapviewer.Control">
    <left>
       <Canvas fx:id="canvas" height="646.0" width="650.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -21,7 +21,7 @@
          </BorderPane.margin></Canvas>
    </left>
    <right>
-       <GridPane prefHeight="614.0" prefWidth="350.0" style="-fx-background-color: #CD853F;" styleClass="grid" BorderPane.alignment="CENTER">
+       <GridPane prefHeight="614.0" prefWidth="350.0" style="-fx-background-color: #CD853F;" styleClass="grid" stylesheets="@button_design.css" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" />
             </columnConstraints>
@@ -70,14 +70,14 @@
                         <Insets left="38.0" top="4.0" />
                     </GridPane.margin>
                 </ImageView>
-            <Button mnemonicParsing="false" onAction="#boatPressed" style="-fx-background-color: #8B4513;" text="Change Position" textFill="#fcf5f5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+            <Button mnemonicParsing="false" onAction="#boatPressed" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Change Position" textFill="#fcf5f5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="2.0" />
                </GridPane.margin>
                <font>
                   <Font name="BatangChe" size="12.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#axePressed" style="-fx-background-color: #8B4513;" text="Change Position" textFill="#f2ebeb" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+            <Button mnemonicParsing="false" onAction="#axePressed" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Change Position" textFill="#f2ebeb" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="2.0" />
                </GridPane.margin>
@@ -115,7 +115,7 @@
                   <Image url="@../../Resources/mapviewer/Title.png" />
                </image>
             </ImageView>
-            <Button fx:id="playButton" mnemonicParsing="false" onAction="#saveClose" prefHeight="48.0" prefWidth="181.0" style="-fx-background-color: #8B4513;" text="Save &amp; Play!" textFill="#fcf9f9" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+            <Button fx:id="playButton" mnemonicParsing="false" onAction="#saveClose" prefHeight="48.0" prefWidth="181.0" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Save &amp; Play!" textFill="#fcf9f9" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="BatangChe" size="18.0" />
                </font>
@@ -123,7 +123,7 @@
                   <Insets bottom="85.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#resetPosition" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #8B4513;" text="Reset" textFill="#fcf6f6" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetPosition" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Reset" textFill="#fcf6f6" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="90.0" left="85.0" />
                </GridPane.margin>
@@ -133,7 +133,7 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></Button>
-            <Button mnemonicParsing="false" onAction="#closeProgram" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #8B4513;" text="Exit" textFill="#fcf8f8" GridPane.rowIndex="5">
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeProgram" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Exit" textFill="#fcf8f8" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="90.0" left="180.0" />
                </GridPane.margin>
