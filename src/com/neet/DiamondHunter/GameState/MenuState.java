@@ -2,18 +2,11 @@
 
 package com.neet.DiamondHunter.GameState;
 
-import com.neet.DiamondHunter.Manager.Content;
-import com.neet.DiamondHunter.Manager.GameStateManager;
-import com.neet.DiamondHunter.Manager.JukeBox;
-import com.neet.DiamondHunter.Manager.Keys;
+public class MenuState extends GameState {
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-
-
-public class MenuState extends com.neet.DiamondHunter.GameState.GameState {
-
-	public static int menupage_state = 0;
+	public static int menupage_state = 0; /*is used as a flag to notify if player has updated the item's position in the
+	 map, since we decided that the game should work in a way such that player can only edit the items position in the
+	 viewmap only once throughout the game*/
 	private java.awt.image.BufferedImage bg;
 	private java.awt.image.BufferedImage diamond;
 	private int currentOption = 0;
@@ -41,7 +34,7 @@ public class MenuState extends com.neet.DiamondHunter.GameState.GameState {
 	
 	public void draw(java.awt.Graphics2D g) {
 			g.drawImage(bg, 0, 0, null);
-			if (menupage_state == 0) {
+			if (menupage_state == 0) { //when user first open the game (have not update the viewmap)
 				com.neet.DiamondHunter.Manager.Content.drawString(g, options[0], 48, 90);
 				com.neet.DiamondHunter.Manager.Content.drawString(g, options[1], 28, 105);
 				com.neet.DiamondHunter.Manager.Content.drawString(g, options[2], 48, 120);
@@ -50,7 +43,7 @@ public class MenuState extends com.neet.DiamondHunter.GameState.GameState {
                 else if (currentOption == 1) g.drawImage(diamond, 8, 101, null);
                 else if (currentOption == 2) g.drawImage(diamond, 25, 116, null);
 			}
-			else if (menupage_state == 1) {
+			else if (menupage_state == 1) { //after user have update the viewmap
 				com.neet.DiamondHunter.Manager.Content.drawString(g, options[0], 48, 90);
 				com.neet.DiamondHunter.Manager.Content.drawString(g, options[2], 48, 105);
 

@@ -1,32 +1,8 @@
 package Mapviewer;
 
-import com.neet.DiamondHunter.Main.Game;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.HashMap;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.WritableImage;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import com.neet.DiamondHunter.GameState.MenuState;
-
 public class Control {
     int x, y;
-    public static int axe_x ;
+    public static int axe_x ;   /*to store updated positions of items to be used across packages*/
     public static int axe_y;
     public static int boat_x;
     public static int boat_y ;
@@ -36,13 +12,11 @@ public class Control {
     public int[][] mapValue;   // the value of each of the map block
     public javafx.scene.image.Image map;
     public javafx.scene.image.Image image;
-    private Mapviewer.GameMap gameMap;
+    private GameMap gameMap;
     private javafx.scene.canvas.GraphicsContext gContext;
-    private java.io.ObjectOutputStream objectWriter;
 
-
-    Mapviewer.Tuple axe;   //store the item's positon
-    Mapviewer.Tuple boat;
+    Tuple axe;   //store the item's positon
+    Tuple boat;
     java.util.HashMap<Integer, Tuple> items;
 
     @javafx.fxml.FXML
@@ -63,11 +37,11 @@ public class Control {
 
     public void initialize() {
         //initialize the picture resource
-        axe = new Mapviewer.Tuple(37, 26);
-        boat = new Mapviewer.Tuple (4,12);
+        axe = new Tuple(37, 26);
+        boat = new Tuple (4,12);
         map = new javafx.scene.image.Image(getClass().getResourceAsStream("/Tilesets/testtileset.gif"));
         image = new javafx.scene.image.Image(getClass().getResourceAsStream("/Sprites/items.gif"));
-        gameMap = new Mapviewer.GameMap(TILESIZE, TILESIZE, map);
+        gameMap = new GameMap(TILESIZE, TILESIZE, map);
         gameMap.loadMap("/Maps/testmap.map");
         gContext = canvas.getGraphicsContext2D();
         //draw the map
@@ -135,26 +109,25 @@ public class Control {
 
             if (type == AXE) {
                if (axe != null) {     //if already have axe, change the positon and draw the axe again
-                   drawItem(3, axe.x, axe.y); /////3
+                   drawItem(3, axe.x, axe.y);
                    axe.setPosition(x, y);
                    displayCoordinate();
-                   drawItem(1, x, y);///1
+                   drawItem(1, x, y);
                } else {                  //if do not have item, add one to the axe object and draw
-                   //drawItem(1, axe_x, axe_y);  ////
                    drawItem(3, axe.x, axe.y);
-                   axe = new Mapviewer.Tuple(x, y);
+                   axe = new Tuple(x, y);
                    displayCoordinate();
                }
 
             } else {
                 if (boat != null) {     //if already have boat, change the positon and draw the axe again
-                    drawItem(3, boat.x, boat.y);//3
+                    drawItem(3, boat.x, boat.y);
                     boat.setPosition(x, y);
                     displayCoordinate();
-                    drawItem(0, x, y);////0
+                    drawItem(0, x, y);
                 } else {                  //if do not have item, add one to the boat object and draw
                     drawItem(0, boat_x, boat_y);
-                    boat = new Mapviewer.Tuple(x, y);
+                    boat = new Tuple(x, y);
                     displayCoordinate();
                 }
 
@@ -190,7 +163,8 @@ public class Control {
 
     }
 
-    /* save the change and write items object into the file using a Serializable hashmap.*/
+    /* assign items new position into the respective static variables to be updated across packages involved
+    and start the game*/
     @javafx.fxml.FXML
     void saveClose() {
         axe_x = axe.x;
@@ -219,21 +193,8 @@ public class Control {
         }
     }
 
-    /*implements the object writer*/
-    public void objectWriter(java.io.File file) {
-        try {
-            objectWriter = new java.io.ObjectOutputStream(new java.io.FileOutputStream(file));
-            objectWriter.writeObject(items);
-            objectWriter.close();
-        } catch (java.io.IOException ioe) {
-            System.err.println("cannot write Item.data for writing!");
-            ioe.printStackTrace();
-        }
-
-    }
-
     @javafx.fxml.FXML
-    void resetPosition()
+    void resetPosition() //set the axe and boat position back to the default/initial state
     {
         initialize();
         displayCoordinate();
