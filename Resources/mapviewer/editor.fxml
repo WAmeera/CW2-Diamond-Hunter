@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="517.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Mapviewer.Control">
+   <left>
+      <Canvas fx:id="canvas" height="646.0" width="650.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="4.0" top="4.0" />
+         </BorderPane.margin></Canvas>
+   </left>
+   <right>
+       <GridPane prefHeight="614.0" prefWidth="350.0" style="-fx-background-color: #CD853F;" styleClass="grid" stylesheets="@button_design.css" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="74.0" minHeight="5.0" prefHeight="55.0" />
+            <RowConstraints maxHeight="243.0" minHeight="10.0" prefHeight="144.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="157.0" minHeight="10.0" prefHeight="51.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="182.0" minHeight="0.0" prefHeight="93.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="189.0" minHeight="0.0" prefHeight="84.0" valignment="TOP" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="238.0" minHeight="1.0" prefHeight="218.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.0" minHeight="1.0" prefHeight="1.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="boatLabel" prefHeight="34.0" prefWidth="185.0" text="BOAT: " textAlignment="CENTER" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                    <GridPane.margin>
+                        <Insets bottom="12.0" left="125.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                    </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+                <Label fx:id="axeLabel" prefHeight="25.0" prefWidth="201.0" text="AXE: " textAlignment="CENTER" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                    <GridPane.margin>
+                        <Insets bottom="12.0" left="125.0" top="7.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="48.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                    <image>
+                        <Image url="@../../Resources/Sprites/axe.png" />
+                    </image>
+                    <GridPane.margin>
+                        <Insets left="38.0" top="7.0" />
+                    </GridPane.margin>
+                </ImageView>
+                <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                    <image>
+                        <Image url="@../../Resources/Sprites/boat.png" />
+                    </image>
+                    <GridPane.margin>
+                        <Insets left="38.0" top="4.0" />
+                    </GridPane.margin>
+                </ImageView>
+            <Button mnemonicParsing="false" onAction="#boatPressed" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Change Position" textFill="#fcf5f5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="2.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="BatangChe" size="12.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#axePressed" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Change Position" textFill="#f2ebeb" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="2.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="BatangChe" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="50.0" fitWidth="350.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <image>
+                  <Image url="@../../Resources/mapviewer/Title.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="55.0" prefWidth="350.0" text="COORDINATES" textFill="#f5eded" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="BatangChe" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="350.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <image>
+                  <Image url="@../../Resources/mapviewer/Title.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="350.0" text="VIEWMAP'S GUIDE" textFill="#fffafa" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="BatangChe" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="199.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../Resources/mapviewer/instructionbackground.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="350.0" pickOnBounds="true" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+               <image>
+                  <Image url="@../../Resources/mapviewer/Title.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="playButton" mnemonicParsing="false" onAction="#saveClose" prefHeight="48.0" prefWidth="181.0" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Save &amp; Play!" textFill="#fcf9f9" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="BatangChe" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="85.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetPosition" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Reset" textFill="#fcf6f6" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="90.0" left="85.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="BatangChe" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Button>
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeProgram" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #8B4513;" stylesheets="@button_design.css" text="Exit" textFill="#fcf8f8" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="90.0" left="180.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="BatangChe" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="112.0" fitWidth="350.0" pickOnBounds="true" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="-15.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../../Resources/mapviewer/trees%20background.jpg.png" />
+               </image>
+            </ImageView>
+            <TextArea blendMode="COLOR_DODGE" prefHeight="70.0" prefWidth="340.0" style="-fx-background-color: #CD853F;" text="Change Position : Click on button before &#10;clicking on positions on map&#10;Reset : Reset items position back to default state&#10;Save and play : Save positions and play game&#10;Exit : Exit game" GridPane.rowIndex="1" GridPane.valignment="BASELINE">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="BatangChe" size="12.0" />
+               </font>
+            </TextArea>
+            </children>
+        </GridPane>
+   </right>
+</BorderPane>

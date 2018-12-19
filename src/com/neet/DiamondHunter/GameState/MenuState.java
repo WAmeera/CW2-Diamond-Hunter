@@ -79,7 +79,7 @@ public class MenuState extends GameState {
 			//Prevent game to run Mapviewer more than once and catch threading error
             try{
                 com.neet.DiamondHunter.Main.Game.window.setVisible(false);//hides main game until user is done from mapviewer
-                Mapviewer.Start.main();
+                Mapviewer.Start.main(null);
 				currentOption = 0;//resets currentOption
             }catch (IllegalStateException e)
             {
