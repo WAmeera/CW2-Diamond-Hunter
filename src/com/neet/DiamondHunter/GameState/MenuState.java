@@ -55,6 +55,7 @@ public class MenuState extends GameState {
 	}
 	
 	public void handleInput() {
+
 	   if (com.neet.DiamondHunter.Manager.Keys.isPressed(com.neet.DiamondHunter.Manager.Keys.DOWN) && currentOption < options.length - 1) {
 	        com.neet.DiamondHunter.Manager.JukeBox.play("menuoption");
 	        currentOption++;
@@ -73,13 +74,13 @@ public class MenuState extends GameState {
 	private void selectOption() {
 		if (currentOption == 0) {
 			gsm.setState(com.neet.DiamondHunter.Manager.GameStateManager.PLAY);
-
 		}
 		if (currentOption == 1) {
-
+			//Prevent game to run Mapviewer more than once and catch threading error
             try{
-                com.neet.DiamondHunter.Main.Game.window.setVisible(false);
+                com.neet.DiamondHunter.Main.Game.window.setVisible(false);//hides main game until user is done from mapviewer
                 Mapviewer.Start.main();
+				currentOption = 0;//resets currentOption
             }catch (IllegalStateException e)
             {
                 System.exit(0);
@@ -88,6 +89,7 @@ public class MenuState extends GameState {
 		}
 		if (currentOption == 2) {
 			System.exit(0);
+
 
 		}
 	}
