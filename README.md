@@ -7,12 +7,12 @@ Group Member :
 3. Ooi Zheng Khai, 18025226 (khfy6ozk)
 </br>
 Disclaimer : </br>
-At the beginning of doing this coursework, we had issues with our github, as we had informed you through fb messenger that only the owner of the repository (Tariq) can do the pushing and adding in commits hence why we decided to just push in bulks hence there is less commit messages in the beginning.  
-</br>
+At the beginning of doing this coursework, we had issues with our github, as we had informed you through fb messenger that only the owner of the repository (Tariq) can do the pushing and adding in commits hence why we decided to just push in bulks hence there is less commit messages in the beginning. </br>
+
 What had been done : </br>
-1. Requirements </br>
+1. Requirements : </br>
  - load viewmap </br>
- - axe and boat in maps : 1. default position, 2. saved changed position into playState </br>
+ - axe and boat in maps : 1. default position, 2. saved changed position into playState </br></br>
 
 2. Additional criteria and improvements : </br>
  - "press any key" button in main game is fixed </br>
