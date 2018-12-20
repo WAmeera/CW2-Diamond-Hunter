@@ -8,8 +8,7 @@ _for Mr. Hani's reference_</br>
 
 **Important :**
 1. The latest working branch is the **_Latest-Design_** </br>
-2. The **jar file** is found in the **folder _bin, _(bin/)_** if jar didn't open click .bat file to run program</br>
-
+2. The **jar file** is found in the **folder _bin, _(bin/)**  if jar file didn't open click on bat file</br>
 
 **Disclaimer :** </br>
 At the beginning of doing this coursework, we had issues with our github, as we had informed you through fb messenger that only the owner of the repository (Tariq) can do the pushing and adding in commits hence why we decided to just push in bulks hence there is less commit messages in the beginning. </br>
@@ -45,5 +44,3 @@ At the beginning of doing this coursework, we had issues with our github, as we 
  3.4.  Also, on the 'viewmap' windows, if player decided to exit the game, he should press on the "Exit" buttons, and player will be prompted by the system via a pop-up warning to confirm the decisions. If player proceed on exiting the game, the entire game will exit. </br>
 
 4. If player choose to go with (1.3.) which is the "Quit" button, the game will exit entirely. </br>
-
-
