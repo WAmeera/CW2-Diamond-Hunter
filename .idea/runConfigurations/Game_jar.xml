@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Game.jar" type="JarApplication" factoryName="JAR Application" singleton="false">
-    <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Game_jar/Game.jar" />
-    <option name="WORKING_DIRECTORY" value="C:\Users\SNIP Web Developer\OneDrive - University of Nottingham Malaysia Campus\UNMC\Year 2\Sem 1\Software Maintaince\CW2-Diamond-Hunter" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-    <method v="2" />
-  </configuration>
-</component>

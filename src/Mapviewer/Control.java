@@ -156,7 +156,8 @@ public class Control {
     public void startGame(){
         com.neet.DiamondHunter.GameState.MenuState.menupage_state = 1;
         com.neet.DiamondHunter.Main.Game.main(null);
-        // get a handle to the stage
+        //On click start game Map closes
+
         javafx.stage.Stage stage = (javafx.stage.Stage) playButton.getScene().getWindow();
         // do what you have to do
         stage.close();
