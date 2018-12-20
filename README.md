@@ -8,7 +8,7 @@ _for Mr. Hani's reference_</br>
 
 **Important :**
 1. The latest working branch is the **_Latest-Design_** </br>
-2. The **jar file** is found in the **folder _bin, _(bin/)**  if jar file didn't open click on bat file</br>
+2. The **jar file** is found in the **folder _bin_, _(bin/)_**  if jar file didn't open click on bat file</br>
 
 **Disclaimer :** </br>
 At the beginning of doing this coursework, we had issues with our github, as we had informed you through fb messenger that only the owner of the repository (Tariq) can do the pushing and adding in commits hence why we decided to just push in bulks hence there is less commit messages in the beginning. </br>
